@@ -18,3 +18,13 @@ def insert_to_supabase(endpoint, data):
     url = f"{SUPABASE_URL}/rest/v1/{endpoint}"
     response = requests.post(url, json=data, headers=headers)
     return response.json()
+
+def update_to_supabase(endpoint, data):
+    url = f"{SUPABASE_URL}/rest/v1/{endpoint}"
+    response = requests.put(url, json=data, headers=headers)
+    return response.json()
+
+def delete_from_supabase(endpoint, data):
+    url = f"{SUPABASE_URL}/rest/v1/{endpoint}"
+    response = requests.delete(url, headers=headers)
+    return response.json()

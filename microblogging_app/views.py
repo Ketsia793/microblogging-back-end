@@ -6,6 +6,11 @@ from rest_framework.response import Response
 from .supabase_utils import fetch_from_supabase, insert_to_supabase
 
 @api_view(['GET'])
+def get_user(request):
+    posts = fetch_from_supabase('microblogging_app_customuser')
+    return Response(posts)
+
+@api_view(['GET'])
 def get_posts(request):
     posts = fetch_from_supabase('posts')
     return Response(posts)
