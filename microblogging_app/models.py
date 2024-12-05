@@ -53,7 +53,7 @@ class CustomUser(AbstractUser):
     updated_at = models.DateTimeField(null=True, blank=True)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['nom', 'prenom', 'username', 'id']
+    REQUIRED_FIELDS = ['nom', 'prenom','username']
 
     def __str__(self):
         return self.email
