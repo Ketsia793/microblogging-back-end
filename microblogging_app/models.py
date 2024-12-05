@@ -46,14 +46,14 @@ from django.utils import timezone
     
 class CustomUser(AbstractUser):
     id = models.BigAutoField(primary_key=True)
-    nom = models.CharField(max_length=255)
-    prenom = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    first_name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
-    created_at = models.DateTimeField(default=timezone.now)
+    date_joined = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(null=True, blank=True)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['nom', 'prenom','username']
+    REQUIRED_FIELDS = ['last_name', 'first_name','username']
 
     def __str__(self):
         return self.email
