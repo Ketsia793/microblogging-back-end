@@ -58,4 +58,18 @@ class CustomUser(AbstractUser):
     def __str__(self):
         return self.email
 
+class Post(models.Model):
+    post_id = models.BigAutoField(primary_key=True)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    # CustomUser est la primaryKey et la foreignKey est reliée à celle-ci 
+    # La méthode cascade permet de supprimer tous les posts reliés à l'utilisateur, lorsque
+    # l'utilisateur supprime son compte
+    content = models.TextField()
+    created_at = models.DateField(auto_now_add=True)
+    # il s'agit d'indiquer ici la date du jour de façon auto
+    update_at = models.DateField(null=True, blank=True)
+    
+   
+    def __str__(self):
+        return f'Post{self.post_id} by {self.user.email}'
    

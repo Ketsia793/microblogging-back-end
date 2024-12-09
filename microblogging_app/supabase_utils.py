@@ -25,6 +25,7 @@ def insert_to_supabase(endpoint, data):
     try:
         url = f"{SUPABASE_URL}/rest/v1/{endpoint}"
         response = requests.post(url, json=data, headers=headers)
+        print(response)
         response.raise_for_status()
         return data  # Return the inserted data if successful
     except Exception as e:
@@ -45,6 +46,14 @@ def delete_from_supabase(endpoint, data):
    
 def getuserby_Id_from_supabase(endpoint, data):
     url = f"{SUPABASE_URL}/rest/v1/{endpoint}?id=eq.{data['id']}"
+    response = requests.get(url, headers=headers)
+    print(response)
+    if response.status_code != 200:
+        return {"error": f"Failed to get user. Status code: {response.status_code}", "details": response.json()}
+    return {"success": f"Succed to get user. Status code: {response.status_code}", "details": response.json()}
+   
+def getuserPost_by_Id_from_supabase(endpoint, data):
+    url = f"{SUPABASE_URL}/rest/v1/{endpoint}?user_id=eq.{data['user_id']}"
     response = requests.get(url, headers=headers)
     print(response)
     if response.status_code != 200:
