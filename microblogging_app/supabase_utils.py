@@ -37,6 +37,17 @@ def update_to_supabase(endpoint, data):
     return response.json()
 
 def delete_from_supabase(endpoint, data):
-    url = f"{SUPABASE_URL}/rest/v1/{endpoint}"
+    url = f"{SUPABASE_URL}/rest/v1/{endpoint}?email=eq.{data['email']}"
     response = requests.delete(url, headers=headers)
-    return response.json()
+    if response.status_code != 204:
+        return {"error": f"Failed to delete user. Status code: {response.status_code}", "details": data}
+    return {"success": f"Succed to delete user. Status code: {response.status_code}", "details": data}
+   
+def getuserby_Id_from_supabase(endpoint, data):
+    url = f"{SUPABASE_URL}/rest/v1/{endpoint}?id=eq.{data['id']}"
+    response = requests.get(url, headers=headers)
+    print(response)
+    if response.status_code != 200:
+        return {"error": f"Failed to get user. Status code: {response.status_code}", "details": response.json()}
+    return {"success": f"Succed to get user. Status code: {response.status_code}", "details": response.json()}
+   
