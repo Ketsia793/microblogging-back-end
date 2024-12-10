@@ -61,6 +61,7 @@ class CustomUser(AbstractUser):
 class Post(models.Model):
     post_id = models.BigAutoField(primary_key=True)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    username = models.CharField(max_length=255, default=models.F('user__username'))
     # CustomUser est la primaryKey et la foreignKey est reliée à celle-ci 
     # La méthode cascade permet de supprimer tous les posts reliés à l'utilisateur, lorsque
     # l'utilisateur supprime son compte
@@ -72,4 +73,18 @@ class Post(models.Model):
    
     def __str__(self):
         return f'Post{self.post_id} by {self.user.email}'
+    
+    
+class Profil(models.Model):
+    profil_id = models.BigAutoField(primary_key=True)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    username = models.CharField(max_length=255, null=False, blank=False)
+    bio = models.TextField()
+    image = models.ImageField(default='default.jpg', upload_to ='images/')
+    created_at = models.DateField(auto_now_add=True)  
+    update_at = models.DateField(null=True, blank=True)
+    
+   
+    def __str__(self):
+        return f'Post{self.profil_id}'
    
