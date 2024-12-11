@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.permissions import IsAuthenticated
 from .models import CustomUser, Profil, Post 
-from .supabase_utils import fetch_from_supabase, insert_to_supabase, new_insert_to_supabase, delete_from_supabase, getuserby_Id_from_supabase,getuserPost_by_Id_from_supabase
+from .supabase_utils import fetch_from_supabase, insert_to_supabase, new_insert_to_supabase, delete_from_supabase, getuserby_Id_from_supabase,getuserPost_by_Id_from_supabase,updateuser_profil_by_Id_from_supabase
 from django.utils import timezone
 from datetime import datetime
 
@@ -80,6 +80,34 @@ def create_user(request):
     }
     new_profil = new_insert_to_supabase('microblogging_app_profil', profil_data)
     return Response({'user': user.id, 'profile': new_profil})
+
+
+@api_view(['GET'])
+@authentication_classes([JWTAuthentication])
+@permission_classes([IsAuthenticated])
+def get_user_profil(request):
+    request.data["user_id"] = request.user.id 
+    data = request.data 
+    profil = getuserPost_by_Id_from_supabase('microblogging_app_profil', data)
+    print(profil)
+    return Response(profil)
+
+@api_view(['PUT'])
+@authentication_classes([JWTAuthentication])
+@permission_classes([IsAuthenticated])
+def put_user_profil(request):
+    request.data["user_id"] = request.user.id
+    data = request.data 
+    profil = getuserPost_by_Id_from_supabase('microblogging_app_profil', data)
+    request.data["profil_id"] = profil['details'][0]['profil_id']
+    request.data["image"] = profil['details'][0]['image']
+    request.data["created_at"] = profil['details'][0]['created_at']
+    request.data["username"] = profil['details'][0]['username']
+    data = request.data 
+    profil = updateuser_profil_by_Id_from_supabase('microblogging_app_profil', data)
+    print(f"Ceci est le profil{profil}")
+    return Response(profil)
+
 
 @api_view(['POST'])
 def delete_user(request):

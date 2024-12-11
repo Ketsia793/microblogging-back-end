@@ -1,6 +1,7 @@
 import requests
 from django.conf import settings
 from supabase import create_client, Client
+from django.utils.http import urlencode
 
 SUPABASE_URL = settings.SUPABASE_URL
 SUPABASE_KEY = settings.SUPABASE_KEY
@@ -37,10 +38,15 @@ def insert_to_supabase(endpoint, data):
         raise 
     
 def update_to_supabase(endpoint, data):
-    url = f"{SUPABASE_URL}/rest/v1/{endpoint}"
-    response = requests.put(url, json=data, headers=headers)
-    return response.json()
-
+    try:
+        url = f"{SUPABASE_URL}/rest/v1/{endpoint}"
+        response = requests.put(url, json=data, headers=headers)
+        return data
+    
+    except Exception as e:
+        print(f"Supabase update error: {e}")
+        raise 
+    
 def delete_from_supabase(endpoint, data):
     url = f"{SUPABASE_URL}/rest/v1/{endpoint}?email=eq.{data['email']}"
     response = requests.delete(url, headers=headers)
@@ -64,3 +70,35 @@ def getuserPost_by_Id_from_supabase(endpoint, data):
         return {"error": f"Failed to get user. Status code: {response.status_code}", "details": response.json()}
     return {"success": f"Succed to get user. Status code: {response.status_code}", "details": response.json()}
    
+def updateuser_profil_by_Id_from_supabase(endpoint, data):
+    print(f"voici le user_id de la fonction PutUser {data['profil_id']}")
+    url = f"{SUPABASE_URL}/rest/v1/{endpoint}?profil_id=eq.{data['profil_id']}"
+    response = requests.put(url, json=data, headers=headers)
+    return response.json()
+
+
+
+ # if 'profil_id' not in data:
+    #     raise ValueError("profil_id is required for update")
+    
+    # print(f"Updating profile with ID: {data['profil_id']}")
+    
+    # url = f"{SUPABASE_URL}/rest/v1/{endpoint}"
+    
+    # # Filter by profil_id
+    # params = {
+    #     'profil_id': 'eq.' + str(data['profil_id'])
+    # }
+    
+    # # Prepare the full URL with query parameters
+    # full_url = f"{url}?{urlencode(params)}"
+    
+    # # Remove profil_id from the data to be sent in the body
+    # update_data = data.copy()
+    # update_data.pop('profil_id', None)
+    
+    # response = requests.put(full_url, json=update_data, headers=headers)
+    
+    # # Check for successful response
+    # if response.status_code not in [200, 204]:
+    #     raise Exception(f"Supabase update failed: {response.text}")

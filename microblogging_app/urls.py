@@ -12,4 +12,6 @@ urlpatterns = [
     path('deleteUser/', views.delete_user),
     path('getUserId/', views.get_userId),
     path('getUserpost/', views.get_user_posts),
+    path('getUserProfil/',views.get_user_profil),
+    path('putUserProfil/', views.put_user_profil),
 ]
