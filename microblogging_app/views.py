@@ -133,6 +133,19 @@ def get_user(request):
     users = fetch_from_supabase('microblogging_app_customuser')
     return Response(users)
 
+# @api_view(['POST'])
+# @authentication_classes([JWTAuthentication])
+# @permission_classes([IsAuthenticated])
+# def create_post(request):
+#     request.data["user_id"] = request.user.id
+#     profil = getuserPost_by_Id_from_supabase('microblogging_app_profil', data)
+#     request.data["username"] = profil.username 
+#     request.data["created_at"] = datetime.now().date().isoformat()
+#     data = request.data
+#     new_post = insert_to_supabase('microblogging_app_post', data)
+#     return Response(new_post)
+
+
 @api_view(['POST'])
 @authentication_classes([JWTAuthentication])
 @permission_classes([IsAuthenticated])
@@ -140,6 +153,9 @@ def create_post(request):
     request.data["user_id"] = request.user.id
     request.data["created_at"] = datetime.now().date().isoformat()
     data = request.data
+    profil = getuserPost_by_Id_from_supabase('microblogging_app_profil', data)
+    print(f"profile = {profil}")
+    data['username'] = profil['details'][0]['username']
     new_post = insert_to_supabase('microblogging_app_post', data)
     return Response(new_post)
 
