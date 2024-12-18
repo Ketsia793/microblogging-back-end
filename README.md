@@ -15,11 +15,11 @@ Service : SUPABASE
 Refactorisation : Non
 UX/UI : Non
 IDE : VSCode
-OS : Mac 
+OS : Mac / OS / Linux
 
 ## Utilisation
 S'exécute via l'IDE VsCode et doit être lancer avec cette ligne de commande : "python3 manage.py runserver"
 
 ## Contributions
-Partie front-end : 
+Partie front-end : https://github.com/guillaume-vcnt/microblogging_project
 
