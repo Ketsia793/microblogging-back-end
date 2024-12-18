@@ -1,22 +1,25 @@
 Microblogging Bib Bip 
 ## À propos
-Est un projet collectif qui a pour but de mettre en application toutes nos connaissances acquises au cours de 6 derniers mois. 
+Est un projet collectif qui a pour but de mettre en application toutes nos connaissances acquises au cours de 8 derniers mois. 
 Un projet imposé par la trame de la formation et s'inspirant des modèles des réseaux sociaux. 
-Ici nous nous sommes concentrés sur la programmation du back-end. 
+Ici nous étions deux sur la programmation du back-end et une personne de l'équipe concentré sur le front-end. 
+
 ## Caractéristiques
-État du projet : En cours / Terminé / Prototype
-Nombre de participants : 1 (solo) / Équipe (x personnes)
-Technologies : ex. JavaScript, HTML, CSS
-Refactorisation : Oui / Non
-Responsivité : Oui / Non
-UX/UI : Oui / Non
+État du projet : En cours 
+Nombre de participants : Équipe (3 personnes)
+Technologies back-end : Pyhthon - Django Rest Framework - PostgrSQL
+Technologies front-end : Vite.js - React - CSS - Html - node(npm)
+
+Service : SUPABASE
+
+Refactorisation : Non
+UX/UI : Non
 IDE : VSCode
-OS : Windows / Mac / Linux
+OS : Mac 
+
 ## Utilisation
-S'exécute via ...
-## Sources
-Ajoute une note sur les sources
+S'exécute via l'IDE VsCode et doit être lancer avec cette ligne de commande : "python3 manage.py runserver"
+
 ## Contributions
-Ajoute une note sur les contributions
-## Licences
-Ajoute une note sur les licences utilisées
+Partie front-end : 
+
