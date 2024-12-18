@@ -1,7 +1,7 @@
 Microblogging Bib Bip 
 ## À propos
 Est un projet collectif qui a pour but de mettre en application toutes nos connaissances acquises au cours de 8 derniers mois. 
-Un projet imposé par la trame de la formation et s'inspirant des modèles des réseaux sociaux. 
+Un projet imposé par la trame de la formation et s'inspirant des modèles des réseaux sociaux.      
 Ici nous étions deux sur la programmation du back-end et une personne de l'équipe concentrée sur le front-end. 
 
 ## Caractéristiques
