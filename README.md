@@ -5,10 +5,10 @@ Un projet imposé par la trame de la formation et s'inspirant des modèles des r
 Ici nous étions deux sur la programmation du back-end et une personne de l'équipe concentrée sur le front-end. 
 
 ## Caractéristiques
-État du projet : En cours 
-Nombre de participants : Équipe (3 personnes)
-Technologies back-end : Pyhthon - Django Rest Framework - PostgrSQL
-Technologies front-end : Vite.js - React - CSS - Html - node(npm)
+État du projet : En cours /
+Nombre de participants : Équipe (3 personnes) /
+Technologies back-end : Pyhthon - Django Rest Framework - PostgrSQL /
+Technologies front-end : Vite.js - React - CSS - Html - node(npm) /
 
 Service : SUPABASE
 
