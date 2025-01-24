@@ -37,8 +37,8 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 
-
-ALLOWED_HOSTS = ['localhost',]
+ALLOWED_HOSTS = ['.vercel.app', 'localhost',]
+#ALLOWED_HOSTS = ['localhost',]
 
 
 # Application definition
