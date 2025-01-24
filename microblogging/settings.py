@@ -86,7 +86,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'microblogging.wsgi.application'
+WSGI_APPLICATION = 'microblogging.wsgi.app'
 
 
 # Database
