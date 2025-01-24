@@ -1,8 +1,25 @@
 {
-    "routes": [
-      {
-        "src": "/api/(.*)",
-        "dest": "microblogging/wsgi.py"
+  "version": 2,
+  "builds": [
+    {
+      "src": "microblogging/wsgi.py",
+      "use": "@vercel/python",
+      "config": {
+        "runtime": "python3.x",
+        "builds": [
+          {
+            "src": "build_files.sh",
+            "use": "@vercel/static-build",
+            "config": {
+              "distDir": "staticfiles"
+            }
+          }
+        ]
       }
-    ]
-  }
+    }
+  ],
+  "routes": [
+    { "src": "/static/(.*)", "dest": "/static/$1" },
+    { "src": "/(.*)", "dest": "microblogging/wsgi.py" }
+  ]
+}
