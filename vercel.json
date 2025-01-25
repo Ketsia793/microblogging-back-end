@@ -3,13 +3,18 @@
   "builds": [
     {
       "src": "microblogging/wsgi.py",
-      "use": "@vercel/python"
-    },
-    {
-      "src": "build_files.sh",
-      "use": "@vercel/static-build",
+      "use": "@vercel/python",
       "config": {
-        "distDir": "staticfiles"
+        "runtime": "python3.x",
+        "builds": [
+          {
+            "src": "build_files.sh",
+            "use": "@vercel/static-build",
+            "config": {
+              "distDir": "staticfiles"
+            }
+          }
+        ]
       }
     }
   ],
@@ -31,5 +36,3 @@
     }
   ]
 }
-
-
