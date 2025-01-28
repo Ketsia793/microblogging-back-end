@@ -36,7 +36,9 @@ CORS_ALLOW_HEADERS = [
     'Access-Control-Allow-Origin',
     'Access-Control-Allow-Methods',
     'Access-Control-Allow-Headers',
+    'Authorization',
 ]
+
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:8000',
