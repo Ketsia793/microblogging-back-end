@@ -7,7 +7,7 @@ Ici nous étions deux sur la programmation du back-end et une personne de l'équ
 ## Caractéristiques
 État du projet : En cours /
 Nombre de participants : Équipe (3 personnes) /
-Technologies back-end : Pyhthon - Django Rest Framework - PostgrSQL /
+Technologies back-end : Pyhthon - Django Rest Framework - PostgreSQL /
 Technologies front-end : Vite.js - React - CSS - Html - node(npm) /
 
 Service : SUPABASE
