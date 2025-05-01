@@ -7,7 +7,7 @@ Ici nous étions deux sur la programmation du back-end et une personne de l'équ
 ## Caractéristiques
 État du projet : En cours /
 Nombre de participants : Équipe (3 personnes) /
-Technologies back-end : Pyhthon - Django Rest Framework - PostgreSQL /
+Technologies back-end : Python - Django Rest Framework - PostgreSQL /
 Technologies front-end : Vite.js - React - CSS - Html - node(npm) /
 
 Service : SUPABASE
@@ -21,5 +21,5 @@ OS : Mac / OS / Linux
 S'exécute via l'IDE VsCode et doit être lancer avec cette ligne de commande : "python3 manage.py runserver"
 
 ## Contributions
-Partie front-end : https://github.com/guillaume-vcnt/microblogging_project
+Partie front-end : en cours 
 * Celinelylou n'est pas contributrice de ce projet, elle était seulement détentrice de mon pc actuel et possédait la même clef SSH que j'ai actuellement. 
